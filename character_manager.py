@@ -2,7 +2,7 @@
 COMP 163 - Project 3: Quest Chronicles
 Character Manager Module - Starter Code
 
-Name: [isaiah foote]
+Name: [Isaiah foote]
 
 AI Usage: [Document any AI assistance used]
 
@@ -34,29 +34,34 @@ def create_character(name, character_class):
     
     Raises: InvalidCharacterClassError if class is not valid
     """
-    valid_classes = {
-        "Warrior": {"health": 120, "strength": 15, "magic": 5},
-        "Mage": {"health": 80, "strength": 8, "magic": 20},
-        "Rogue": {"health": 90, "strength": 12, "magic": 10},
-        "Cleric": {"health": 100, "strength": 10, "magic": 15},
-    }
-
+    valid_classes = ["Warrior", "Mage", "Rogue", "Cleric"]
     if character_class not in valid_classes:
         raise InvalidCharacterClassError(f"Invalid class: {character_class}")
-
-    base = valid_classes[character_class]
 
     character = {
         "name": name,
         "class": character_class,
         "level": 1,
-        "health": base["health"],
-        "max_health": base["health"],
-        "strength": base["strength"],
-        "magic": base["magic"],
         "experience": 0,
-        "gold": 100,
+        "gold": 100, 
+
+    # Stats
+        "strength": 10,
+        "defense": 10,
+        "health": 100,
+        "max_health": 100,
+        "magic": 5,  
+
+    # Inventory
         "inventory": [],
+
+    # Equipment
+        "equipped_weapon": None,
+        "equipped_weapon_effect": None,
+        "equipped_armor": None,
+        "equipped_armor_effect": None,
+
+    # Quests
         "active_quests": [],
         "completed_quests": []
     }
